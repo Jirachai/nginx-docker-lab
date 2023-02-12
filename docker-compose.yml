@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx-proxy:
-    image: nginx
+    image: nginx:1.23.2-alpine
     container_name: nginx-proxy
     restart: always
     ports:
@@ -11,6 +11,8 @@ services:
     volumes:
 #      - ./www:/var/www:ro
       - ./conf.d:/etc/nginx/conf.d:ro
+      - ./html/:/usr/share/nginx/html
+#      - ./html:/var/www/html
 #      - ./ssl:/etc/nginx/ssl:ro
 #      - ./snippets:/etc/nginx/snippets:ro
 #      - ./protect:/etc/nginx/protect:ro
